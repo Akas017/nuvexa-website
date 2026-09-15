@@ -1,344 +1,2002 @@
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * The content below * * * * * * * * * * * -->
-<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
-<!-- * * * * * * * * * * and can be replaced.  * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * Delete the template below * * * * * * * * * -->
-<!-- * * * * * * * to get started with your project! * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<div class="min-h-screen bg-[#f7f9fc] text-slate-900">
 
-<style>
-  :host {
-    --bright-blue: oklch(51.01% 0.274 263.83);
-    --electric-violet: oklch(53.18% 0.28 296.97);
-    --french-violet: oklch(47.66% 0.246 305.88);
-    --vivid-pink: oklch(69.02% 0.277 332.77);
-    --hot-red: oklch(61.42% 0.238 15.34);
-    --orange-red: oklch(63.32% 0.24 31.68);
+  <!-- =========================================================
+       NAVBAR
+  ========================================================== -->
+  <header class="fixed inset-x-0 top-0 z-50 border-b border-slate-200/80 bg-white/90 backdrop-blur-xl">
+    <div class="mx-auto flex h-20 max-w-7xl items-center justify-between px-5 sm:px-6 lg:px-8">
 
-    --gray-900: oklch(19.37% 0.006 300.98);
-    --gray-700: oklch(36.98% 0.014 302.71);
-    --gray-400: oklch(70.9% 0.015 304.04);
+      <a href="#top" class="flex items-center gap-3">
+        <div
+          class="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-blue-600 to-indigo-600 text-sm font-bold text-white shadow-lg shadow-blue-600/20"
+        >
+          N
+        </div>
 
-    --red-to-pink-to-purple-vertical-gradient: linear-gradient(
-      180deg,
-      var(--orange-red) 0%,
-      var(--vivid-pink) 50%,
-      var(--electric-violet) 100%
-    );
+        <div>
+          <p class="text-sm font-bold tracking-[0.18em] text-slate-950">
+            {{ companyName }}
+          </p>
+          <p class="text-[10px] font-medium uppercase tracking-[0.16em] text-slate-400">
+            Digital Systems Studio
+          </p>
+        </div>
+      </a>
 
-    --red-to-pink-to-purple-horizontal-gradient: linear-gradient(
-      90deg,
-      var(--orange-red) 0%,
-      var(--vivid-pink) 50%,
-      var(--electric-violet) 100%
-    );
+      <nav class="hidden items-center gap-8 lg:flex">
+        <a
+          href="#services"
+          class="text-sm font-medium text-slate-500 transition hover:text-blue-600"
+        >
+          Services
+        </a>
 
-    --pill-accent: var(--bright-blue);
+        <a
+          href="#work"
+          class="text-sm font-medium text-slate-500 transition hover:text-blue-600"
+        >
+          Work
+        </a>
 
-    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-      Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
-      "Segoe UI Symbol";
-    box-sizing: border-box;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    display: block;
-    height: 100dvh;
-  }
+        <a
+          href="#process"
+          class="text-sm font-medium text-slate-500 transition hover:text-blue-600"
+        >
+          Process
+        </a>
 
-  h1 {
-    font-size: 3.125rem;
-    color: var(--gray-900);
-    font-weight: 500;
-    line-height: 100%;
-    letter-spacing: -0.125rem;
-    margin: 0;
-    font-family: "Inter Tight", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-      Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
-      "Segoe UI Symbol";
-  }
+        <a
+          href="#about"
+          class="text-sm font-medium text-slate-500 transition hover:text-blue-600"
+        >
+          About
+        </a>
+      </nav>
 
-  p {
-    margin: 0;
-    color: var(--gray-700);
-  }
-
-  main {
-    width: 100%;
-    min-height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 1rem;
-    box-sizing: inherit;
-    position: relative;
-  }
-
-  .angular-logo {
-    max-width: 9.2rem;
-  }
-
-  .content {
-    display: flex;
-    justify-content: space-around;
-    width: 100%;
-    max-width: 700px;
-    margin-bottom: 3rem;
-  }
-
-  .content h1 {
-    margin-top: 1.75rem;
-  }
-
-  .content p {
-    margin-top: 1.5rem;
-  }
-
-  .divider {
-    width: 1px;
-    background: var(--red-to-pink-to-purple-vertical-gradient);
-    margin-inline: 0.5rem;
-  }
-
-  .pill-group {
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-    flex-wrap: wrap;
-    gap: 1.25rem;
-  }
-
-  .pill {
-    display: flex;
-    align-items: center;
-    --pill-accent: var(--bright-blue);
-    background: color-mix(in srgb, var(--pill-accent) 5%, transparent);
-    color: var(--pill-accent);
-    padding-inline: 0.75rem;
-    padding-block: 0.375rem;
-    border-radius: 2.75rem;
-    border: 0;
-    transition: background 0.3s ease;
-    font-family: var(--inter-font);
-    font-size: 0.875rem;
-    font-style: normal;
-    font-weight: 500;
-    line-height: 1.4rem;
-    letter-spacing: -0.00875rem;
-    text-decoration: none;
-    white-space: nowrap;
-  }
-
-  .pill:hover {
-    background: color-mix(in srgb, var(--pill-accent) 15%, transparent);
-  }
-
-  .pill-group .pill:nth-child(6n + 1) {
-    --pill-accent: var(--bright-blue);
-  }
-  .pill-group .pill:nth-child(6n + 2) {
-    --pill-accent: var(--electric-violet);
-  }
-  .pill-group .pill:nth-child(6n + 3) {
-    --pill-accent: var(--french-violet);
-  }
-
-  .pill-group .pill:nth-child(6n + 4),
-  .pill-group .pill:nth-child(6n + 5),
-  .pill-group .pill:nth-child(6n + 6) {
-    --pill-accent: var(--hot-red);
-  }
-
-  .pill-group svg {
-    margin-inline-start: 0.25rem;
-  }
-
-  .social-links {
-    display: flex;
-    align-items: center;
-    gap: 0.73rem;
-    margin-top: 1.5rem;
-  }
-
-  .social-links path {
-    transition: fill 0.3s ease;
-    fill: var(--gray-400);
-  }
-
-  .social-links a:hover svg path {
-    fill: var(--gray-900);
-  }
-
-  @media screen and (max-width: 650px) {
-    .content {
-      flex-direction: column;
-      width: max-content;
-    }
-
-    .divider {
-      height: 1px;
-      width: 100%;
-      background: var(--red-to-pink-to-purple-horizontal-gradient);
-      margin-block: 1.5rem;
-    }
-  }
-</style>
-
-<main class="main">
-  <div class="content">
-    <div class="left-side">
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 982 239"
-        fill="none"
-        class="angular-logo"
+      <a
+        href="#contact"
+        class="rounded-full bg-slate-950 px-5 py-2.5 text-sm font-semibold text-white shadow-lg shadow-slate-950/10 transition hover:-translate-y-0.5 hover:bg-blue-600"
       >
-        <g clip-path="url(#a)">
-          <path
-            fill="url(#b)"
-            d="M388.676 191.625h30.849L363.31 31.828h-35.758l-56.215 159.797h30.848l13.174-39.356h60.061l13.256 39.356Zm-65.461-62.675 21.602-64.311h1.227l21.602 64.311h-44.431Zm126.831-7.527v70.202h-28.23V71.839h27.002v20.374h1.392c2.782-6.71 7.2-12.028 13.255-15.956 6.056-3.927 13.584-5.89 22.503-5.89 8.264 0 15.465 1.8 21.684 5.318 6.137 3.518 10.964 8.673 14.319 15.382 3.437 6.71 5.074 14.81 4.992 24.383v76.175h-28.23v-71.92c0-8.019-2.046-14.237-6.219-18.819-4.173-4.5-9.819-6.791-17.102-6.791-4.91 0-9.328 1.063-13.174 3.272-3.846 2.128-6.792 5.237-9.001 9.328-2.046 4.009-3.191 8.918-3.191 14.728ZM589.233 239c-10.147 0-18.82-1.391-26.103-4.091-7.282-2.7-13.092-6.382-17.511-10.964-4.418-4.582-7.528-9.655-9.164-15.219l25.448-6.136c1.145 2.372 2.782 4.663 4.991 6.954 2.209 2.291 5.155 4.255 8.837 5.81 3.683 1.554 8.428 2.291 14.074 2.291 8.019 0 14.647-1.964 19.884-5.81 5.237-3.845 7.856-10.227 7.856-19.064v-22.665h-1.391c-1.473 2.946-3.601 5.892-6.383 9.001-2.782 3.109-6.464 5.645-10.965 7.691-4.582 2.046-10.228 3.109-17.101 3.109-9.165 0-17.511-2.209-25.039-6.545-7.446-4.337-13.42-10.883-17.757-19.474-4.418-8.673-6.628-19.473-6.628-32.565 0-13.091 2.21-24.301 6.628-33.383 4.419-9.082 10.311-15.955 17.839-20.7 7.528-4.746 15.874-7.037 25.039-7.037 7.037 0 12.846 1.145 17.347 3.518 4.582 2.373 8.182 5.236 10.883 8.51 2.7 3.272 4.746 6.382 6.137 9.327h1.554v-19.8h27.821v121.749c0 10.228-2.454 18.737-7.364 25.447-4.91 6.709-11.538 11.7-20.048 15.055-8.509 3.355-18.165 4.991-28.884 4.991Zm.245-71.266c5.974 0 11.047-1.473 15.302-4.337 4.173-2.945 7.446-7.118 9.573-12.519 2.21-5.482 3.274-12.027 3.274-19.637 0-7.609-1.064-14.155-3.274-19.8-2.127-5.646-5.318-10.064-9.491-13.255-4.174-3.11-9.329-4.746-15.384-4.746s-11.537 1.636-15.792 4.91c-4.173 3.272-7.365 7.772-9.492 13.418-2.128 5.727-3.191 12.191-3.191 19.392 0 7.2 1.063 13.745 3.273 19.228 2.127 5.482 5.318 9.736 9.573 12.764 4.174 3.027 9.41 4.582 15.629 4.582Zm141.56-26.51V71.839h28.23v119.786h-27.412v-21.273h-1.227c-2.7 6.709-7.119 12.191-13.338 16.446-6.137 4.255-13.747 6.382-22.748 6.382-7.855 0-14.81-1.718-20.783-5.237-5.974-3.518-10.72-8.591-14.075-15.382-3.355-6.709-5.073-14.891-5.073-24.464V71.839h28.312v71.921c0 7.609 2.046 13.664 6.219 18.083 4.173 4.5 9.655 6.709 16.365 6.709 4.173 0 8.183-.982 12.111-3.028 3.927-2.045 7.118-5.072 9.655-9.082 2.537-4.091 3.764-9.164 3.764-15.218Zm65.707-109.395v159.796h-28.23V31.828h28.23Zm44.841 162.169c-7.61 0-14.402-1.391-20.457-4.091-6.055-2.7-10.883-6.791-14.32-12.109-3.518-5.319-5.237-11.946-5.237-19.801 0-6.791 1.228-12.355 3.765-16.773 2.536-4.419 5.891-7.937 10.228-10.637 4.337-2.618 9.164-4.664 14.647-6.055 5.4-1.391 11.046-2.373 16.856-3.027 7.037-.737 12.683-1.391 17.102-1.964 4.337-.573 7.528-1.555 9.574-2.782 1.963-1.309 3.027-3.273 3.027-5.973v-.491c0-5.891-1.718-10.391-5.237-13.664-3.518-3.191-8.51-4.828-15.056-4.828-6.955 0-12.356 1.473-16.447 4.5-4.009 3.028-6.71 6.546-8.183 10.719l-26.348-3.764c2.046-7.282 5.483-13.336 10.31-18.328 4.746-4.909 10.638-8.59 17.511-11.045 6.955-2.455 14.565-3.682 22.912-3.682 5.809 0 11.537.654 17.265 2.045s10.965 3.6 15.711 6.71c4.746 3.109 8.51 7.282 11.455 12.6 2.864 5.318 4.337 11.946 4.337 19.883v80.184h-27.166v-16.446h-.9c-1.719 3.355-4.092 6.464-7.201 9.328-3.109 2.864-6.955 5.237-11.619 6.955-4.828 1.718-10.229 2.536-16.529 2.536Zm7.364-20.701c5.646 0 10.556-1.145 14.729-3.354 4.173-2.291 7.364-5.237 9.655-9.001 2.292-3.763 3.355-7.854 3.355-12.273v-14.155c-.9.737-2.373 1.391-4.5 2.046-2.128.654-4.419 1.145-7.037 1.636-2.619.491-5.155.9-7.692 1.227-2.537.328-4.746.655-6.628.901-4.173.572-8.019 1.472-11.292 2.781-3.355 1.31-5.973 3.11-7.855 5.401-1.964 2.291-2.864 5.318-2.864 8.918 0 5.237 1.882 9.164 5.728 11.782 3.682 2.782 8.51 4.091 14.401 4.091Zm64.643 18.328V71.839h27.412v19.965h1.227c2.21-6.955 5.974-12.274 11.292-16.038 5.319-3.763 11.456-5.645 18.329-5.645 1.555 0 3.355.082 5.237.163 1.964.164 3.601.328 4.91.573v25.938c-1.227-.41-3.109-.819-5.646-1.146a58.814 58.814 0 0 0-7.446-.49c-5.155 0-9.738 1.145-13.829 3.354-4.091 2.209-7.282 5.236-9.655 9.164-2.373 3.927-3.519 8.427-3.519 13.5v70.448h-28.312ZM222.077 39.192l-8.019 125.923L137.387 0l84.69 39.192Zm-53.105 162.825-57.933 33.056-57.934-33.056 11.783-28.556h92.301l11.783 28.556ZM111.039 62.675l30.357 73.803H80.681l30.358-73.803ZM7.937 165.115 0 39.192 84.69 0 7.937 165.115Z"
-          />
-          <path
-            fill="url(#c)"
-            d="M388.676 191.625h30.849L363.31 31.828h-35.758l-56.215 159.797h30.848l13.174-39.356h60.061l13.256 39.356Zm-65.461-62.675 21.602-64.311h1.227l21.602 64.311h-44.431Zm126.831-7.527v70.202h-28.23V71.839h27.002v20.374h1.392c2.782-6.71 7.2-12.028 13.255-15.956 6.056-3.927 13.584-5.89 22.503-5.89 8.264 0 15.465 1.8 21.684 5.318 6.137 3.518 10.964 8.673 14.319 15.382 3.437 6.71 5.074 14.81 4.992 24.383v76.175h-28.23v-71.92c0-8.019-2.046-14.237-6.219-18.819-4.173-4.5-9.819-6.791-17.102-6.791-4.91 0-9.328 1.063-13.174 3.272-3.846 2.128-6.792 5.237-9.001 9.328-2.046 4.009-3.191 8.918-3.191 14.728ZM589.233 239c-10.147 0-18.82-1.391-26.103-4.091-7.282-2.7-13.092-6.382-17.511-10.964-4.418-4.582-7.528-9.655-9.164-15.219l25.448-6.136c1.145 2.372 2.782 4.663 4.991 6.954 2.209 2.291 5.155 4.255 8.837 5.81 3.683 1.554 8.428 2.291 14.074 2.291 8.019 0 14.647-1.964 19.884-5.81 5.237-3.845 7.856-10.227 7.856-19.064v-22.665h-1.391c-1.473 2.946-3.601 5.892-6.383 9.001-2.782 3.109-6.464 5.645-10.965 7.691-4.582 2.046-10.228 3.109-17.101 3.109-9.165 0-17.511-2.209-25.039-6.545-7.446-4.337-13.42-10.883-17.757-19.474-4.418-8.673-6.628-19.473-6.628-32.565 0-13.091 2.21-24.301 6.628-33.383 4.419-9.082 10.311-15.955 17.839-20.7 7.528-4.746 15.874-7.037 25.039-7.037 7.037 0 12.846 1.145 17.347 3.518 4.582 2.373 8.182 5.236 10.883 8.51 2.7 3.272 4.746 6.382 6.137 9.327h1.554v-19.8h27.821v121.749c0 10.228-2.454 18.737-7.364 25.447-4.91 6.709-11.538 11.7-20.048 15.055-8.509 3.355-18.165 4.991-28.884 4.991Zm.245-71.266c5.974 0 11.047-1.473 15.302-4.337 4.173-2.945 7.446-7.118 9.573-12.519 2.21-5.482 3.274-12.027 3.274-19.637 0-7.609-1.064-14.155-3.274-19.8-2.127-5.646-5.318-10.064-9.491-13.255-4.174-3.11-9.329-4.746-15.384-4.746s-11.537 1.636-15.792 4.91c-4.173 3.272-7.365 7.772-9.492 13.418-2.128 5.727-3.191 12.191-3.191 19.392 0 7.2 1.063 13.745 3.273 19.228 2.127 5.482 5.318 9.736 9.573 12.764 4.174 3.027 9.41 4.582 15.629 4.582Zm141.56-26.51V71.839h28.23v119.786h-27.412v-21.273h-1.227c-2.7 6.709-7.119 12.191-13.338 16.446-6.137 4.255-13.747 6.382-22.748 6.382-7.855 0-14.81-1.718-20.783-5.237-5.974-3.518-10.72-8.591-14.075-15.382-3.355-6.709-5.073-14.891-5.073-24.464V71.839h28.312v71.921c0 7.609 2.046 13.664 6.219 18.083 4.173 4.5 9.655 6.709 16.365 6.709 4.173 0 8.183-.982 12.111-3.028 3.927-2.045 7.118-5.072 9.655-9.082 2.537-4.091 3.764-9.164 3.764-15.218Zm65.707-109.395v159.796h-28.23V31.828h28.23Zm44.841 162.169c-7.61 0-14.402-1.391-20.457-4.091-6.055-2.7-10.883-6.791-14.32-12.109-3.518-5.319-5.237-11.946-5.237-19.801 0-6.791 1.228-12.355 3.765-16.773 2.536-4.419 5.891-7.937 10.228-10.637 4.337-2.618 9.164-4.664 14.647-6.055 5.4-1.391 11.046-2.373 16.856-3.027 7.037-.737 12.683-1.391 17.102-1.964 4.337-.573 7.528-1.555 9.574-2.782 1.963-1.309 3.027-3.273 3.027-5.973v-.491c0-5.891-1.718-10.391-5.237-13.664-3.518-3.191-8.51-4.828-15.056-4.828-6.955 0-12.356 1.473-16.447 4.5-4.009 3.028-6.71 6.546-8.183 10.719l-26.348-3.764c2.046-7.282 5.483-13.336 10.31-18.328 4.746-4.909 10.638-8.59 17.511-11.045 6.955-2.455 14.565-3.682 22.912-3.682 5.809 0 11.537.654 17.265 2.045s10.965 3.6 15.711 6.71c4.746 3.109 8.51 7.282 11.455 12.6 2.864 5.318 4.337 11.946 4.337 19.883v80.184h-27.166v-16.446h-.9c-1.719 3.355-4.092 6.464-7.201 9.328-3.109 2.864-6.955 5.237-11.619 6.955-4.828 1.718-10.229 2.536-16.529 2.536Zm7.364-20.701c5.646 0 10.556-1.145 14.729-3.354 4.173-2.291 7.364-5.237 9.655-9.001 2.292-3.763 3.355-7.854 3.355-12.273v-14.155c-.9.737-2.373 1.391-4.5 2.046-2.128.654-4.419 1.145-7.037 1.636-2.619.491-5.155.9-7.692 1.227-2.537.328-4.746.655-6.628.901-4.173.572-8.019 1.472-11.292 2.781-3.355 1.31-5.973 3.11-7.855 5.401-1.964 2.291-2.864 5.318-2.864 8.918 0 5.237 1.882 9.164 5.728 11.782 3.682 2.782 8.51 4.091 14.401 4.091Zm64.643 18.328V71.839h27.412v19.965h1.227c2.21-6.955 5.974-12.274 11.292-16.038 5.319-3.763 11.456-5.645 18.329-5.645 1.555 0 3.355.082 5.237.163 1.964.164 3.601.328 4.91.573v25.938c-1.227-.41-3.109-.819-5.646-1.146a58.814 58.814 0 0 0-7.446-.49c-5.155 0-9.738 1.145-13.829 3.354-4.091 2.209-7.282 5.236-9.655 9.164-2.373 3.927-3.519 8.427-3.519 13.5v70.448h-28.312ZM222.077 39.192l-8.019 125.923L137.387 0l84.69 39.192Zm-53.105 162.825-57.933 33.056-57.934-33.056 11.783-28.556h92.301l11.783 28.556ZM111.039 62.675l30.357 73.803H80.681l30.358-73.803ZM7.937 165.115 0 39.192 84.69 0 7.937 165.115Z"
-          />
-        </g>
-        <defs>
-          <radialGradient
-            id="c"
-            cx="0"
-            cy="0"
-            r="1"
-            gradientTransform="rotate(118.122 171.182 60.81) scale(205.794)"
-            gradientUnits="userSpaceOnUse"
-          >
-            <stop stop-color="#FF41F8" />
-            <stop offset=".707" stop-color="#FF41F8" stop-opacity=".5" />
-            <stop offset="1" stop-color="#FF41F8" stop-opacity="0" />
-          </radialGradient>
-          <linearGradient
-            id="b"
-            x1="0"
-            x2="982"
-            y1="192"
-            y2="192"
-            gradientUnits="userSpaceOnUse"
-          >
-            <stop stop-color="#F0060B" />
-            <stop offset="0" stop-color="#F0070C" />
-            <stop offset=".526" stop-color="#CC26D5" />
-            <stop offset="1" stop-color="#7702FF" />
-          </linearGradient>
-          <clipPath id="a"><path fill="#fff" d="M0 0h982v239H0z" /></clipPath>
-        </defs>
-      </svg>
-      <h1>Hello, {{ title() }}</h1>
-      <p>Congratulations! Your app is running. 🎉</p>
+        Start a Project
+      </a>
     </div>
-    <div class="divider" role="separator" aria-label="Divider"></div>
-    <div class="right-side">
-      <div class="pill-group">
-        @for (item of [
-          { title: 'Explore the Docs', link: 'https://angular.dev' },
-          { title: 'Learn with Tutorials', link: 'https://angular.dev/tutorials' },
-          { title: 'Prompt and best practices for AI', link: 'https://angular.dev/ai/develop-with-ai'},
-          { title: 'CLI Docs', link: 'https://angular.dev/tools/cli' },
-          { title: 'Angular Language Service', link: 'https://angular.dev/tools/language-service' },
-          { title: 'Angular DevTools', link: 'https://angular.dev/tools/devtools' },
-        ]; track item.title) {
-          <a
-            class="pill"
-            [href]="item.link"
-            target="_blank"
-            rel="noopener"
-          >
-            <span>{{ item.title }}</span>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              height="14"
-              viewBox="0 -960 960 960"
-              width="14"
-              fill="currentColor"
+  </header>
+
+
+  <!-- =========================================================
+       MAIN
+  ========================================================== -->
+  <main id="top">
+
+    <!-- =======================================================
+         HERO
+    ======================================================== -->
+    <section class="relative overflow-hidden pt-32 sm:pt-36">
+      <div class="absolute inset-0 soft-grid opacity-50"></div>
+
+      <div
+        class="absolute left-1/2 top-24 h-96 w-96 -translate-x-1/2 rounded-full bg-blue-100/60 blur-3xl"
+      ></div>
+
+      <div class="relative mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
+        <div class="grid items-center gap-14 lg:grid-cols-[1.05fr_.95fr] lg:gap-20">
+
+          <!-- Left -->
+          <div>
+            <div
+              class="mb-6 inline-flex items-center gap-2 rounded-full border border-blue-100 bg-blue-50 px-3 py-1.5 text-xs font-semibold text-blue-600"
             >
-              <path
-                d="M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h280v80H200v560h560v-280h80v280q0 33-23.5 56.5T760-120H200Zm188-212-56-56 372-372H560v-80h280v280h-80v-144L388-332Z"
-              />
-            </svg>
-          </a>
-        }
+              <span class="h-1.5 w-1.5 rounded-full bg-blue-600"></span>
+              AI • AUTOMATION • DIGITAL SYSTEMS
+            </div>
+
+            <h1
+              class="max-w-3xl text-5xl font-bold leading-[1.05] tracking-[-0.045em] text-slate-950 sm:text-6xl lg:text-7xl"
+            >
+              We build digital systems that
+              <span class="text-blue-600"> automate business.</span>
+            </h1>
+
+            <p
+              class="mt-7 max-w-2xl text-lg leading-8 text-slate-500 sm:text-xl"
+            >
+              Digital solutions for growing businesses.
+              We help businesses replace repetitive manual work with AI,
+              automation, CRM, custom software and modern web solutions.
+            </p>
+
+            <div class="mt-9 flex flex-wrap items-center gap-4">
+              <a
+                href="#contact"
+                class="rounded-full bg-slate-950 px-6 py-3.5 text-sm font-semibold text-white shadow-xl shadow-slate-950/10 transition hover:-translate-y-0.5 hover:bg-blue-600"
+              >
+                Start a Project
+              </a>
+
+              <a
+                href="#work"
+                class="rounded-full border border-slate-200 bg-white px-6 py-3.5 text-sm font-semibold text-slate-700 transition hover:-translate-y-0.5 hover:border-blue-200 hover:text-blue-600"
+              >
+                See Our Work
+              </a>
+            </div>
+
+            <div class="mt-10 flex flex-wrap gap-3">
+              <span class="service-tag-large">AI & LLM</span>
+              <span class="service-tag-large">Automation</span>
+              <span class="service-tag-large">CRM</span>
+              <span class="service-tag-large">Web Development</span>
+              <span class="service-tag-large">APIs</span>
+              <span class="service-tag-large">Data Systems</span>
+            </div>
+          </div>
+
+          <!-- Right visual -->
+          <div class="relative">
+            <div
+              class="absolute -inset-5 rounded-[32px] bg-blue-100/60 blur-2xl"
+            ></div>
+
+            <div
+              class="relative overflow-hidden rounded-[28px] border border-slate-200 bg-white p-4 shadow-[0_30px_80px_rgba(15,23,42,0.10)] sm:p-5"
+            >
+
+              <div class="flex items-center justify-between border-b border-slate-100 pb-4">
+                <div class="flex items-center gap-1.5">
+                  <span class="h-2.5 w-2.5 rounded-full bg-slate-200"></span>
+                  <span class="h-2.5 w-2.5 rounded-full bg-slate-200"></span>
+                  <span class="h-2.5 w-2.5 rounded-full bg-slate-200"></span>
+                </div>
+
+                <div class="rounded-full bg-slate-50 px-4 py-1.5 text-[10px] font-medium text-slate-400">
+                  business-system.local
+                </div>
+
+                <div class="h-7 w-7 rounded-full bg-blue-50"></div>
+              </div>
+
+              <div class="grid gap-4 pt-5 sm:grid-cols-[180px_1fr]">
+
+                <!-- Sidebar -->
+                <div class="rounded-2xl bg-slate-950 p-4 text-white">
+                  <p class="text-[10px] uppercase tracking-[0.16em] text-slate-500">
+                    Workspace
+                  </p>
+
+                  <div class="mt-4 space-y-2">
+                    <div class="rounded-xl bg-blue-600 px-3 py-2.5 text-xs font-semibold">
+                      Dashboard
+                    </div>
+
+                    <div class="rounded-xl px-3 py-2.5 text-xs text-slate-400">
+                      Automation
+                    </div>
+
+                    <div class="rounded-xl px-3 py-2.5 text-xs text-slate-400">
+                      CRM
+                    </div>
+
+                    <div class="rounded-xl px-3 py-2.5 text-xs text-slate-400">
+                      Reports
+                    </div>
+                  </div>
+
+                  <div class="mt-16 rounded-xl border border-white/10 bg-white/5 p-3">
+                    <p class="text-[9px] uppercase tracking-[0.15em] text-blue-300">
+                      Automation
+                    </p>
+
+                    <p class="mt-2 text-xs font-semibold text-white">
+                      14 workflows running
+                    </p>
+
+                    <div class="mt-3 h-1.5 rounded-full bg-white/10">
+                      <div class="h-full w-[84%] rounded-full bg-blue-500"></div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Dashboard -->
+                <div class="space-y-4">
+
+                  <div class="flex items-center justify-between">
+                    <div>
+                      <p class="text-[10px] font-semibold uppercase tracking-[0.14em] text-blue-600">
+                        Business Operations
+                      </p>
+
+                      <h3 class="mt-1 text-xl font-bold text-slate-950">
+                        Automation Overview
+                      </h3>
+                    </div>
+
+                    <div class="rounded-lg border border-slate-200 px-3 py-2 text-[10px] font-medium text-slate-500">
+                      Last 30 days
+                    </div>
+                  </div>
+
+                  <div class="grid grid-cols-2 gap-3">
+                    <div class="rounded-2xl border border-slate-200 bg-slate-50 p-4">
+                      <p class="text-[10px] font-medium text-slate-400">
+                        Tasks Automated
+                      </p>
+                      <p class="mt-2 text-2xl font-bold text-slate-950">
+                        12,840
+                      </p>
+                      <p class="mt-1 text-[10px] font-semibold text-emerald-600">
+                        ↑ 32.4%
+                      </p>
+                    </div>
+
+                    <div class="rounded-2xl border border-slate-200 bg-slate-50 p-4">
+                      <p class="text-[10px] font-medium text-slate-400">
+                        Hours Saved
+                      </p>
+                      <p class="mt-2 text-2xl font-bold text-slate-950">
+                        486
+                      </p>
+                      <p class="mt-1 text-[10px] font-semibold text-blue-600">
+                        This month
+                      </p>
+                    </div>
+                  </div>
+
+                  <div class="rounded-2xl border border-slate-200 p-4">
+                    <div class="flex items-center justify-between">
+                      <p class="text-xs font-semibold text-slate-800">
+                        Workflow Activity
+                      </p>
+
+                      <span class="text-[10px] font-medium text-slate-400">
+                        Weekly
+                      </span>
+                    </div>
+
+                    <div class="mt-5 flex h-32 items-end gap-2">
+                      <div class="h-[38%] flex-1 rounded-t-md bg-blue-100"></div>
+                      <div class="h-[48%] flex-1 rounded-t-md bg-blue-200"></div>
+                      <div class="h-[44%] flex-1 rounded-t-md bg-blue-200"></div>
+                      <div class="h-[67%] flex-1 rounded-t-md bg-blue-300"></div>
+                      <div class="h-[61%] flex-1 rounded-t-md bg-blue-400"></div>
+                      <div class="h-[82%] flex-1 rounded-t-md bg-blue-500"></div>
+                      <div class="h-[92%] flex-1 rounded-t-md bg-blue-600"></div>
+                    </div>
+                  </div>
+
+                  <div class="grid gap-3 sm:grid-cols-2">
+
+                    <div class="rounded-2xl border border-slate-200 p-4">
+                      <div class="flex items-center justify-between">
+                        <p class="text-xs font-semibold text-slate-800">
+                          AI Email Processing
+                        </p>
+
+                        <span class="rounded-full bg-emerald-50 px-2 py-1 text-[9px] font-semibold text-emerald-600">
+                          Active
+                        </span>
+                      </div>
+
+                      <p class="mt-2 text-[10px] leading-5 text-slate-400">
+                        1,280 documents processed automatically.
+                      </p>
+                    </div>
+
+                    <div class="rounded-2xl border border-slate-200 p-4">
+                      <div class="flex items-center justify-between">
+                        <p class="text-xs font-semibold text-slate-800">
+                          CRM Automation
+                        </p>
+
+                        <span class="rounded-full bg-blue-50 px-2 py-1 text-[9px] font-semibold text-blue-600">
+                          Running
+                        </span>
+                      </div>
+
+                      <p class="mt-2 text-[10px] leading-5 text-slate-400">
+                        Leads routed and updated automatically.
+                      </p>
+                    </div>
+
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
       </div>
-      <div class="social-links">
-        <a
-          href="https://github.com/angular/angular"
-          aria-label="Github"
-          target="_blank"
-          rel="noopener"
-        >
-          <svg
-            width="25"
-            height="24"
-            viewBox="0 0 25 24"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            alt="Github"
-          >
-            <path
-              d="M12.3047 0C5.50634 0 0 5.50942 0 12.3047C0 17.7423 3.52529 22.3535 8.41332 23.9787C9.02856 24.0946 9.25414 23.7142 9.25414 23.3871C9.25414 23.0949 9.24389 22.3207 9.23876 21.2953C5.81601 22.0377 5.09414 19.6444 5.09414 19.6444C4.53427 18.2243 3.72524 17.8449 3.72524 17.8449C2.61064 17.082 3.81137 17.0973 3.81137 17.0973C5.04697 17.1835 5.69604 18.3647 5.69604 18.3647C6.79321 20.2463 8.57636 19.7029 9.27978 19.3881C9.39052 18.5924 9.70736 18.0499 10.0591 17.7423C7.32641 17.4347 4.45429 16.3765 4.45429 11.6618C4.45429 10.3185 4.9311 9.22133 5.72065 8.36C5.58222 8.04931 5.16694 6.79833 5.82831 5.10337C5.82831 5.10337 6.85883 4.77319 9.2121 6.36459C10.1965 6.09082 11.2424 5.95546 12.2883 5.94931C13.3342 5.95546 14.3801 6.09082 15.3644 6.36459C17.7023 4.77319 18.7328 5.10337 18.7328 5.10337C19.3942 6.79833 18.9789 8.04931 18.8559 8.36C19.6403 9.22133 20.1171 10.3185 20.1171 11.6618C20.1171 16.3888 17.2409 17.4296 14.5031 17.7321C14.9338 18.1012 15.3337 18.8559 15.3337 20.0084C15.3337 21.6552 15.3183 22.978 15.3183 23.3779C15.3183 23.7009 15.5336 24.0854 16.1642 23.9623C21.0871 22.3484 24.6094 17.7341 24.6094 12.3047C24.6094 5.50942 19.0999 0 12.3047 0Z"
-            />
-          </svg>
-        </a>
-        <a
-          href="https://x.com/angular"
-          aria-label="X"
-          target="_blank"
-          rel="noopener"
-        >
-          <svg
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            alt="X"
-          >
-            <path
-              d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"
-            />
-          </svg>
-        </a>
-        <a
-          href="https://www.youtube.com/channel/UCbn1OgGei-DV7aSRo_HaAiw"
-          aria-label="Youtube"
-          target="_blank"
-          rel="noopener"
-        >
-          <svg
-            width="29"
-            height="20"
-            viewBox="0 0 29 20"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            alt="Youtube"
-          >
-            <path
-              fill-rule="evenodd"
-              clip-rule="evenodd"
-              d="M27.4896 1.52422C27.9301 1.96749 28.2463 2.51866 28.4068 3.12258C29.0004 5.35161 29.0004 10 29.0004 10C29.0004 10 29.0004 14.6484 28.4068 16.8774C28.2463 17.4813 27.9301 18.0325 27.4896 18.4758C27.0492 18.9191 26.5 19.2389 25.8972 19.4032C23.6778 20 14.8068 20 14.8068 20C14.8068 20 5.93586 20 3.71651 19.4032C3.11363 19.2389 2.56449 18.9191 2.12405 18.4758C1.68361 18.0325 1.36732 17.4813 1.20683 16.8774C0.613281 14.6484 0.613281 10 0.613281 10C0.613281 10 0.613281 5.35161 1.20683 3.12258C1.36732 2.51866 1.68361 1.96749 2.12405 1.52422C2.56449 1.08095 3.11363 0.76113 3.71651 0.596774C5.93586 0 14.8068 0 14.8068 0C14.8068 0 23.6778 0 25.8972 0.596774C26.5 0.76113 27.0492 1.08095 27.4896 1.52422ZM19.3229 10L11.9036 5.77905V14.221L19.3229 10Z"
-            />
-          </svg>
-        </a>
+    </section>
+
+
+    <!-- =======================================================
+         VALUE STRIP
+    ======================================================== -->
+    <section class="border-y border-slate-200 bg-white">
+      <div class="mx-auto grid max-w-7xl grid-cols-2 px-5 sm:px-6 lg:grid-cols-4 lg:px-8">
+
+        <div class="border-r border-slate-200 px-5 py-8 lg:px-8">
+          <p class="text-2xl font-bold text-slate-950">01</p>
+          <p class="mt-2 text-sm font-semibold text-slate-800">
+            Automate repetitive work
+          </p>
+        </div>
+
+        <div class="px-5 py-8 lg:border-r lg:border-slate-200 lg:px-8">
+          <p class="text-2xl font-bold text-slate-950">02</p>
+          <p class="mt-2 text-sm font-semibold text-slate-800">
+            Connect your systems
+          </p>
+        </div>
+
+        <div class="border-r border-slate-200 px-5 py-8 lg:px-8">
+          <p class="text-2xl font-bold text-slate-950">03</p>
+          <p class="mt-2 text-sm font-semibold text-slate-800">
+            Improve operations
+          </p>
+        </div>
+
+        <div class="px-5 py-8 lg:px-8">
+          <p class="text-2xl font-bold text-slate-950">04</p>
+          <p class="mt-2 text-sm font-semibold text-slate-800">
+            Scale with technology
+          </p>
+        </div>
+
       </div>
+    </section>
+
+
+    <!-- =======================================================
+         SERVICES
+    ======================================================== -->
+    <section id="services" class="py-24 sm:py-28">
+      <div class="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
+
+        <div class="max-w-3xl">
+          <p class="text-xs font-bold uppercase tracking-[0.2em] text-blue-600">
+            What we build
+          </p>
+
+          <h2
+            class="mt-4 text-4xl font-bold tracking-[-0.03em] text-slate-950 sm:text-5xl"
+          >
+            Digital systems designed around your business.
+          </h2>
+
+          <p class="mt-5 text-lg leading-8 text-slate-500">
+            From automation and AI workflows to websites, CRM systems,
+            APIs and data infrastructure — we build technology that solves
+            real operational problems.
+          </p>
+        </div>
+
+        <div class="mt-14 grid gap-6 lg:grid-cols-2">
+
+          <!-- AI -->
+          <div class="bento-card p-7 sm:p-8">
+            <div class="flex items-start justify-between gap-6">
+              <div>
+                <span class="case-study-label">01 · AI</span>
+
+                <h3 class="mt-5 text-2xl font-bold text-slate-950">
+                  AI & Automation
+                </h3>
+
+                <p class="mt-3 text-sm leading-7 text-slate-500">
+                  Replace repetitive manual processes with intelligent
+                  workflows that run automatically.
+                </p>
+              </div>
+
+              <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-blue-50 text-xl">
+                ✦
+              </div>
+            </div>
+
+            <div class="mt-8 space-y-6">
+
+              <div class="service-item">
+                <p class="service-title">AI Workflow Automation</p>
+                <p class="service-description">
+                  Automate multi-step business workflows using AI and rules.
+                </p>
+              </div>
+
+              <div class="service-item">
+                <p class="service-title">AI & LLM Integrations</p>
+                <p class="service-description">
+                  Integrate modern AI models into existing business products.
+                </p>
+              </div>
+
+              <div class="service-item">
+                <p class="service-title">Email Automation</p>
+                <p class="service-description">
+                  Classify, process and route incoming emails automatically.
+                </p>
+              </div>
+
+              <div class="service-item">
+                <p class="service-title">Document & OCR Automation</p>
+                <p class="service-description">
+                  Extract structured information from invoices, forms and PDFs.
+                </p>
+              </div>
+
+            </div>
+          </div>
+
+
+          <!-- Business Systems -->
+          <div class="bento-card p-7 sm:p-8">
+            <div class="flex items-start justify-between gap-6">
+              <div>
+                <span class="case-study-label">02 · SYSTEMS</span>
+
+                <h3 class="mt-5 text-2xl font-bold text-slate-950">
+                  Business Systems
+                </h3>
+
+                <p class="mt-3 text-sm leading-7 text-slate-500">
+                  Build internal tools and business platforms around your
+                  existing processes.
+                </p>
+              </div>
+
+              <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-indigo-50 text-xl">
+                ◈
+              </div>
+            </div>
+
+            <div class="mt-8 space-y-6">
+
+              <div class="service-item">
+                <p class="service-title">Custom CRM</p>
+                <p class="service-description">
+                  Manage leads, customers, pipelines and operational data.
+                </p>
+              </div>
+
+              <div class="service-item">
+                <p class="service-title">Sales Pipeline Systems</p>
+                <p class="service-description">
+                  Automate lead routing, follow-ups and sales workflows.
+                </p>
+              </div>
+
+              <div class="service-item">
+                <p class="service-title">Internal Tools</p>
+                <p class="service-description">
+                  Build software tailored to your team's internal operations.
+                </p>
+              </div>
+
+              <div class="service-item">
+                <p class="service-title">CRM & API Integrations</p>
+                <p class="service-description">
+                  Connect CRM systems with websites, APIs and third-party tools.
+                </p>
+              </div>
+
+            </div>
+          </div>
+
+
+          <!-- Web -->
+          <div class="bento-card p-7 sm:p-8">
+            <div class="flex items-start justify-between gap-6">
+              <div>
+                <span class="case-study-label">03 · WEB</span>
+
+                <h3 class="mt-5 text-2xl font-bold text-slate-950">
+                  Web & Digital
+                </h3>
+
+                <p class="mt-3 text-sm leading-7 text-slate-500">
+                  Modern websites and web applications built for performance,
+                  credibility and growth.
+                </p>
+              </div>
+
+              <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-violet-50 text-xl">
+                ◎
+              </div>
+            </div>
+
+            <div class="mt-8 space-y-6">
+
+              <div class="service-item">
+                <p class="service-title">Business Websites</p>
+                <p class="service-description">
+                  High-quality websites designed around your brand and business.
+                </p>
+              </div>
+
+              <div class="service-item">
+                <p class="service-title">Custom Web Applications</p>
+                <p class="service-description">
+                  Build scalable web platforms and customer-facing products.
+                </p>
+              </div>
+
+              <div class="service-item">
+                <p class="service-title">Website Enhancement</p>
+                <p class="service-description">
+                  Modernize existing websites, UX, performance and functionality.
+                </p>
+              </div>
+
+              <div class="service-item">
+                <p class="service-title">Technical SEO</p>
+                <p class="service-description">
+                  Improve structure, performance and search visibility.
+                </p>
+              </div>
+
+            </div>
+          </div>
+
+
+          <!-- Data -->
+          <div class="bento-card p-7 sm:p-8">
+            <div class="flex items-start justify-between gap-6">
+              <div>
+                <span class="case-study-label">04 · DATA</span>
+
+                <h3 class="mt-5 text-2xl font-bold text-slate-950">
+                  Data & Integrations
+                </h3>
+
+                <p class="mt-3 text-sm leading-7 text-slate-500">
+                  Turn scattered data into reliable systems, structured
+                  information and useful business intelligence.
+                </p>
+              </div>
+
+              <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-cyan-50 text-xl">
+                ◌
+              </div>
+            </div>
+
+            <div class="mt-8 space-y-6">
+
+              <div class="service-item">
+                <p class="service-title">
+                  Market Intelligence & Data Automation
+                </p>
+
+                <p class="service-description">
+                  Collect public web data, structure it and turn it into
+                  actionable business intelligence.
+                </p>
+              </div>
+
+              <div class="service-item">
+                <p class="service-title">API Development</p>
+
+                <p class="service-description">
+                  Build reliable APIs for products, dashboards and integrations.
+                </p>
+              </div>
+
+              <div class="service-item">
+                <p class="service-title">Data Processing</p>
+
+                <p class="service-description">
+                  Clean, transform and structure business data for further use.
+                </p>
+              </div>
+
+              <div class="service-item">
+                <p class="service-title">Third-Party Integrations</p>
+
+                <p class="service-description">
+                  Connect external tools and services into a unified workflow.
+                </p>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- =======================================================
+         SELECTED WORK
+    ======================================================== -->
+    <section id="work" class="border-y border-slate-200 bg-white py-24 sm:py-28">
+      <div class="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
+
+        <div class="max-w-3xl">
+          <p class="text-xs font-bold uppercase tracking-[0.2em] text-blue-600">
+            Selected work
+          </p>
+
+          <h2
+            class="mt-4 text-4xl font-bold tracking-[-0.03em] text-slate-950 sm:text-5xl"
+          >
+            Systems built to solve real problems.
+          </h2>
+
+          <p class="mt-5 text-lg leading-8 text-slate-500">
+            A selection of product concepts and digital systems showing
+            how we approach automation, business operations and data.
+          </p>
+        </div>
+
+
+        <!-- =====================================================
+             CASE STUDY 01 — CRM
+        ====================================================== -->
+        <div class="mt-16 overflow-hidden rounded-[28px] border border-slate-200 bg-[#f8fafc]">
+
+          <div class="grid lg:grid-cols-[.88fr_1.12fr]">
+
+            <div class="p-7 sm:p-9 lg:p-12">
+
+              <span class="case-study-label">
+                01 · AI CRM AUTOMATION
+              </span>
+
+              <h3
+                class="mt-6 max-w-xl text-3xl font-bold tracking-[-0.03em] text-slate-950 sm:text-4xl"
+              >
+                AI CRM & Sales Automation
+              </h3>
+
+              <p class="mt-5 text-base leading-7 text-slate-500">
+                A centralized CRM system designed to automate lead handling,
+                sales operations, follow-ups and customer management.
+              </p>
+
+              <div class="mt-10">
+                <p class="text-xs font-bold uppercase tracking-[0.16em] text-slate-400">
+                  The Problem
+                </p>
+
+                <p class="mt-3 text-sm leading-7 text-slate-600">
+                  Sales teams often manage leads across spreadsheets,
+                  emails and disconnected tools, creating delays,
+                  missed follow-ups and limited visibility.
+                </p>
+              </div>
+
+              <div class="mt-8">
+                <p class="text-xs font-bold uppercase tracking-[0.16em] text-slate-400">
+                  The Solution
+                </p>
+
+                <p class="mt-3 text-sm leading-7 text-slate-600">
+                  A centralized CRM with automated lead routing,
+                  follow-ups, activity tracking, pipeline management
+                  and AI-assisted workflows.
+                </p>
+              </div>
+
+              <div class="mt-10 grid gap-3 sm:grid-cols-2">
+
+                <div class="rounded-2xl border border-slate-200 bg-white p-4">
+                  <p class="text-sm font-bold text-slate-900">
+                    Lead Automation
+                  </p>
+                  <p class="mt-2 text-xs leading-5 text-slate-400">
+                    Automatically capture and route leads.
+                  </p>
+                </div>
+
+                <div class="rounded-2xl border border-slate-200 bg-white p-4">
+                  <p class="text-sm font-bold text-slate-900">
+                    Pipeline Management
+                  </p>
+                  <p class="mt-2 text-xs leading-5 text-slate-400">
+                    Track opportunities from lead to close.
+                  </p>
+                </div>
+
+                <div class="rounded-2xl border border-slate-200 bg-white p-4">
+                  <p class="text-sm font-bold text-slate-900">
+                    AI Assistance
+                  </p>
+                  <p class="mt-2 text-xs leading-5 text-slate-400">
+                    Automate repetitive sales intelligence tasks.
+                  </p>
+                </div>
+
+                <div class="rounded-2xl border border-slate-200 bg-white p-4">
+                  <p class="text-sm font-bold text-slate-900">
+                    Activity Tracking
+                  </p>
+                  <p class="mt-2 text-xs leading-5 text-slate-400">
+                    Keep customer and sales activity centralized.
+                  </p>
+                </div>
+
+              </div>
+
+              <div class="mt-8 flex flex-wrap gap-2">
+                <span class="service-tag">Angular</span>
+                <span class="service-tag">Python</span>
+                <span class="service-tag">FastAPI</span>
+                <span class="service-tag">PostgreSQL</span>
+                <span class="service-tag">AI / LLM</span>
+                <span class="service-tag">Automation</span>
+              </div>
+
+            </div>
+
+
+            <div class="self-start bg-gradient-to-br from-slate-50 to-blue-50/70 p-4 sm:p-6 lg:p-7">
+
+              <div class="space-y-5">
+
+                <div class="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-[0_20px_50px_rgba(15,23,42,0.07)]">
+
+                  <div class="flex items-center justify-between border-b border-slate-100 px-4 py-4 sm:px-5">
+
+                    <div>
+                      <p class="text-[9px] font-bold uppercase tracking-[0.14em] text-blue-600">
+                        Product Interface
+                      </p>
+
+                      <p class="mt-1 text-sm font-bold text-slate-900">
+                        CRM Dashboard
+                      </p>
+                    </div>
+
+                    <span class="rounded-full bg-emerald-50 px-2.5 py-1 text-[9px] font-semibold text-emerald-600">
+                      Live System
+                    </span>
+
+                  </div>
+
+                  <div class="p-3 sm:p-4">
+                    <img
+                      src="/images/projects/crm/crm-dashboard.png"
+                      alt="AI CRM and sales automation dashboard"
+                      class="case-study-image rounded-2xl"
+                    />
+                  </div>
+
+                </div>
+
+
+                <div class="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-[0_20px_50px_rgba(15,23,42,0.07)]">
+
+                  <div class="flex items-center justify-between border-b border-slate-100 px-4 py-4 sm:px-5">
+
+                    <div>
+                      <p class="text-[9px] font-bold uppercase tracking-[0.14em] text-indigo-600">
+                        System Workflow
+                      </p>
+
+                      <p class="mt-1 text-sm font-bold text-slate-900">
+                        How the automation works
+                      </p>
+                    </div>
+
+                    <span class="rounded-full bg-indigo-50 px-2.5 py-1 text-[9px] font-semibold text-indigo-600">
+                      7 Steps
+                    </span>
+
+                  </div>
+
+                  <div class="p-3 sm:p-4">
+                    <img
+                      src="/images/projects/crm/crm-workflow.png"
+                      alt="AI CRM sales automation workflow"
+                      class="case-study-image rounded-2xl"
+                    />
+                  </div>
+
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <div class="border-t border-slate-200 bg-white p-7 sm:p-9 lg:p-12">
+
+            <div class="mb-7">
+              <p class="text-xs font-bold uppercase tracking-[0.16em] text-slate-400">
+                Business Value
+              </p>
+            </div>
+
+            <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+
+              <div class="rounded-2xl border border-slate-200 bg-slate-50 p-5">
+                <p class="text-lg font-bold text-slate-950">
+                  Save Time
+                </p>
+
+                <p class="mt-2 text-xs leading-5 text-slate-500">
+                  Reduce repetitive sales administration.
+                </p>
+              </div>
+
+              <div class="rounded-2xl border border-slate-200 bg-slate-50 p-5">
+                <p class="text-lg font-bold text-slate-950">
+                  Respond Faster
+                </p>
+
+                <p class="mt-2 text-xs leading-5 text-slate-500">
+                  Automate routing and follow-up workflows.
+                </p>
+              </div>
+
+              <div class="rounded-2xl border border-slate-200 bg-slate-50 p-5">
+                <p class="text-lg font-bold text-slate-950">
+                  Improve Visibility
+                </p>
+
+                <p class="mt-2 text-xs leading-5 text-slate-500">
+                  Centralize sales and customer operations.
+                </p>
+              </div>
+
+              <div class="rounded-2xl border border-slate-200 bg-slate-50 p-5">
+                <p class="text-lg font-bold text-slate-950">
+                  Scale Operations
+                </p>
+
+                <p class="mt-2 text-xs leading-5 text-slate-500">
+                  Build processes that scale with the business.
+                </p>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- =====================================================
+             CASE STUDY 02 — EMAIL
+        ====================================================== -->
+        <div class="mt-10 overflow-hidden rounded-[28px] border border-slate-200 bg-[#f8fafc]">
+
+          <div class="grid lg:grid-cols-[.88fr_1.12fr]">
+
+            <div class="p-7 sm:p-9 lg:p-12">
+
+              <span class="case-study-label">
+                02 · AI EMAIL DOCUMENTS
+              </span>
+
+              <h3
+                class="mt-6 max-w-xl text-3xl font-bold tracking-[-0.03em] text-slate-950 sm:text-4xl"
+              >
+                AI Email & Document Automation
+              </h3>
+
+              <p class="mt-5 text-base leading-7 text-slate-500">
+                Automatically process incoming emails and attachments,
+                extract useful information and move structured data
+                into business systems.
+              </p>
+
+              <div class="mt-10">
+                <p class="text-xs font-bold uppercase tracking-[0.16em] text-slate-400">
+                  The Problem
+                </p>
+
+                <p class="mt-3 text-sm leading-7 text-slate-600">
+                  Teams spend hours manually opening emails,
+                  downloading attachments, reading documents and
+                  copying information into spreadsheets or software.
+                </p>
+              </div>
+
+              <div class="mt-8">
+                <p class="text-xs font-bold uppercase tracking-[0.16em] text-slate-400">
+                  The Solution
+                </p>
+
+                <p class="mt-3 text-sm leading-7 text-slate-600">
+                  An automated document processing pipeline that detects
+                  incoming files, extracts text, understands document
+                  contents and sends structured data to the right system.
+                </p>
+              </div>
+
+              <div class="mt-10 grid gap-3 sm:grid-cols-2">
+
+                <div class="rounded-2xl border border-slate-200 bg-white p-4">
+                  <p class="text-sm font-bold text-slate-900">
+                    Email Processing
+                  </p>
+                  <p class="mt-2 text-xs leading-5 text-slate-400">
+                    Monitor and process incoming emails automatically.
+                  </p>
+                </div>
+
+                <div class="rounded-2xl border border-slate-200 bg-white p-4">
+                  <p class="text-sm font-bold text-slate-900">
+                    OCR & Extraction
+                  </p>
+                  <p class="mt-2 text-xs leading-5 text-slate-400">
+                    Extract useful data from documents and PDFs.
+                  </p>
+                </div>
+
+                <div class="rounded-2xl border border-slate-200 bg-white p-4">
+                  <p class="text-sm font-bold text-slate-900">
+                    AI Classification
+                  </p>
+                  <p class="mt-2 text-xs leading-5 text-slate-400">
+                    Understand document type and content automatically.
+                  </p>
+                </div>
+
+                <div class="rounded-2xl border border-slate-200 bg-white p-4">
+                  <p class="text-sm font-bold text-slate-900">
+                    System Integration
+                  </p>
+                  <p class="mt-2 text-xs leading-5 text-slate-400">
+                    Send validated information into CRM or databases.
+                  </p>
+                </div>
+
+              </div>
+
+              <div class="mt-8 flex flex-wrap gap-2">
+                <span class="service-tag">Python</span>
+                <span class="service-tag">FastAPI</span>
+                <span class="service-tag">OCR</span>
+                <span class="service-tag">AI / LLM</span>
+                <span class="service-tag">PostgreSQL</span>
+                <span class="service-tag">Automation</span>
+              </div>
+
+            </div>
+
+
+            <div class="self-start bg-gradient-to-br from-slate-50 to-blue-50/70 p-4 sm:p-6 lg:p-7">
+
+              <div class="space-y-5">
+
+                <div class="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-[0_20px_50px_rgba(15,23,42,0.07)]">
+
+                  <div class="flex items-center justify-between border-b border-slate-100 px-4 py-4 sm:px-5">
+
+                    <div>
+                      <p class="text-[9px] font-bold uppercase tracking-[0.14em] text-blue-600">
+                        Product Interface
+                      </p>
+
+                      <p class="mt-1 text-sm font-bold text-slate-900">
+                        Email & Document Processing
+                      </p>
+                    </div>
+
+                    <span class="rounded-full bg-emerald-50 px-2.5 py-1 text-[9px] font-semibold text-emerald-600">
+                      Automated
+                    </span>
+
+                  </div>
+
+                  <div class="p-3 sm:p-4">
+                    <img
+                      src="/images/projects/email-automation/email-dashboard.png"
+                      alt="AI email and document processing dashboard"
+                      class="case-study-image rounded-2xl"
+                    />
+                  </div>
+
+                </div>
+
+
+                <div class="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-[0_20px_50px_rgba(15,23,42,0.07)]">
+
+                  <div class="flex items-center justify-between border-b border-slate-100 px-4 py-4 sm:px-5">
+
+                    <div>
+                      <p class="text-[9px] font-bold uppercase tracking-[0.14em] text-indigo-600">
+                        System Workflow
+                      </p>
+
+                      <p class="mt-1 text-sm font-bold text-slate-900">
+                        From email to structured data
+                      </p>
+                    </div>
+
+                    <span class="rounded-full bg-indigo-50 px-2.5 py-1 text-[9px] font-semibold text-indigo-600">
+                      Automated Flow
+                    </span>
+
+                  </div>
+
+                  <div class="p-3 sm:p-4">
+                    <img
+                      src="/images/projects/email-automation/email-workflow.png"
+                      alt="AI email document automation workflow"
+                      class="case-study-image rounded-2xl"
+                    />
+                  </div>
+
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <div class="border-t border-slate-200 bg-white p-7 sm:p-9 lg:p-12">
+
+            <div class="mb-7">
+              <p class="text-xs font-bold uppercase tracking-[0.16em] text-slate-400">
+                Business Value
+              </p>
+            </div>
+
+            <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+
+              <div class="rounded-2xl border border-slate-200 bg-slate-50 p-5">
+                <p class="text-lg font-bold text-slate-950">
+                  Save Time
+                </p>
+
+                <p class="mt-2 text-xs leading-5 text-slate-500">
+                  Reduce manual document handling.
+                </p>
+              </div>
+
+              <div class="rounded-2xl border border-slate-200 bg-slate-50 p-5">
+                <p class="text-lg font-bold text-slate-950">
+                  Improve Accuracy
+                </p>
+
+                <p class="mt-2 text-xs leading-5 text-slate-500">
+                  Minimize repetitive data-entry errors.
+                </p>
+              </div>
+
+              <div class="rounded-2xl border border-slate-200 bg-slate-50 p-5">
+                <p class="text-lg font-bold text-slate-950">
+                  Improve Efficiency
+                </p>
+
+                <p class="mt-2 text-xs leading-5 text-slate-500">
+                  Move information through workflows automatically.
+                </p>
+              </div>
+
+              <div class="rounded-2xl border border-slate-200 bg-slate-50 p-5">
+                <p class="text-lg font-bold text-slate-950">
+                  Scale Processing
+                </p>
+
+                <p class="mt-2 text-xs leading-5 text-slate-500">
+                  Process more documents without proportional manual effort.
+                </p>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- =====================================================
+             CASE STUDY 03 — MARKET INTELLIGENCE
+        ====================================================== -->
+        <div class="mt-10 overflow-hidden rounded-[28px] border border-slate-200 bg-[#f8fafc]">
+
+          <div class="grid lg:grid-cols-[.88fr_1.12fr]">
+
+            <div class="p-7 sm:p-9 lg:p-12">
+
+              <span class="case-study-label">
+                03 · DATA INTELLIGENCE
+              </span>
+
+              <h3
+                class="mt-6 max-w-xl text-3xl font-bold tracking-[-0.03em] text-slate-950 sm:text-4xl"
+              >
+                Market Intelligence & Data Automation
+              </h3>
+
+              <p class="mt-5 text-base leading-7 text-slate-500">
+                Collect publicly available web data, transform it into
+                structured information and deliver business intelligence
+                through dashboards, alerts, APIs or internal systems.
+              </p>
+
+              <div class="mt-10">
+                <p class="text-xs font-bold uppercase tracking-[0.16em] text-slate-400">
+                  The Problem
+                </p>
+
+                <p class="mt-3 text-sm leading-7 text-slate-600">
+                  Valuable market information is often scattered across
+                  websites, directories, product pages, reviews and other
+                  public sources, making continuous monitoring difficult.
+                </p>
+              </div>
+
+              <div class="mt-8">
+                <p class="text-xs font-bold uppercase tracking-[0.16em] text-slate-400">
+                  The Solution
+                </p>
+
+                <p class="mt-3 text-sm leading-7 text-slate-600">
+                  Build automated data pipelines that collect relevant
+                  public web data, clean and validate it, store structured
+                  datasets and turn them into actionable intelligence.
+                </p>
+              </div>
+
+              <div class="mt-10 grid gap-3 sm:grid-cols-2">
+
+                <div class="rounded-2xl border border-slate-200 bg-white p-4">
+                  <p class="text-sm font-bold text-slate-900">
+                    Competitor Monitoring
+                  </p>
+
+                  <p class="mt-2 text-xs leading-5 text-slate-400">
+                    Track products, pricing and market changes.
+                  </p>
+                </div>
+
+                <div class="rounded-2xl border border-slate-200 bg-white p-4">
+                  <p class="text-sm font-bold text-slate-900">
+                    Data Extraction
+                  </p>
+
+                  <p class="mt-2 text-xs leading-5 text-slate-400">
+                    Collect useful information from public web sources.
+                  </p>
+                </div>
+
+                <div class="rounded-2xl border border-slate-200 bg-white p-4">
+                  <p class="text-sm font-bold text-slate-900">
+                    Data Processing
+                  </p>
+
+                  <p class="mt-2 text-xs leading-5 text-slate-400">
+                    Clean, validate and transform collected information.
+                  </p>
+                </div>
+
+                <div class="rounded-2xl border border-slate-200 bg-white p-4">
+                  <p class="text-sm font-bold text-slate-900">
+                    Intelligence & Alerts
+                  </p>
+
+                  <p class="mt-2 text-xs leading-5 text-slate-400">
+                    Deliver insights through dashboards, alerts or APIs.
+                  </p>
+                </div>
+
+              </div>
+
+              <div class="mt-8 flex flex-wrap gap-2">
+                <span class="service-tag">Python</span>
+                <span class="service-tag">Data Pipelines</span>
+                <span class="service-tag">APIs</span>
+                <span class="service-tag">PostgreSQL</span>
+                <span class="service-tag">Automation</span>
+                <span class="service-tag">Analytics</span>
+              </div>
+
+            </div>
+
+
+            <div class="self-start bg-gradient-to-br from-slate-50 to-blue-50/70 p-4 sm:p-6 lg:p-7">
+
+              <div class="space-y-5">
+
+                <div class="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-[0_20px_50px_rgba(15,23,42,0.07)]">
+
+                  <div class="flex items-center justify-between border-b border-slate-100 px-4 py-4 sm:px-5">
+
+                    <div>
+                      <p class="text-[9px] font-bold uppercase tracking-[0.14em] text-blue-600">
+                        Product Interface
+                      </p>
+
+                      <p class="mt-1 text-sm font-bold text-slate-900">
+                        Market Intelligence Dashboard
+                      </p>
+                    </div>
+
+                    <span class="rounded-full bg-blue-50 px-2.5 py-1 text-[9px] font-semibold text-blue-600">
+                      Data Platform
+                    </span>
+
+                  </div>
+
+                  <div class="p-3 sm:p-4">
+                    <img
+                      src="/images/projects/market-intelligence/market-dashboard.png"
+                      alt="Market intelligence and data automation dashboard"
+                      class="case-study-image rounded-2xl"
+                    />
+                  </div>
+
+                </div>
+
+
+                <div class="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-[0_20px_50px_rgba(15,23,42,0.07)]">
+
+                  <div class="flex items-center justify-between border-b border-slate-100 px-4 py-4 sm:px-5">
+
+                    <div>
+                      <p class="text-[9px] font-bold uppercase tracking-[0.14em] text-indigo-600">
+                        System Workflow
+                      </p>
+
+                      <p class="mt-1 text-sm font-bold text-slate-900">
+                        From web data to business intelligence
+                      </p>
+                    </div>
+
+                    <span class="rounded-full bg-indigo-50 px-2.5 py-1 text-[9px] font-semibold text-indigo-600">
+                      7 Stages
+                    </span>
+
+                  </div>
+
+                  <div class="p-3 sm:p-4">
+                    <img
+                      src="/images/projects/market-intelligence/market-workflow.png"
+                      alt="Market intelligence data automation workflow"
+                      class="case-study-image rounded-2xl"
+                    />
+                  </div>
+
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <div class="border-t border-slate-200 bg-white p-7 sm:p-9 lg:p-12">
+
+            <div class="mb-7">
+              <p class="text-xs font-bold uppercase tracking-[0.16em] text-slate-400">
+                Business Value
+              </p>
+            </div>
+
+            <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+
+              <div class="rounded-2xl border border-slate-200 bg-slate-50 p-5">
+                <p class="text-lg font-bold text-slate-950">
+                  Monitor Competitors
+                </p>
+
+                <p class="mt-2 text-xs leading-5 text-slate-500">
+                  Track pricing, products and market changes.
+                </p>
+              </div>
+
+              <div class="rounded-2xl border border-slate-200 bg-slate-50 p-5">
+                <p class="text-lg font-bold text-slate-950">
+                  Make Smarter Decisions
+                </p>
+
+                <p class="mt-2 text-xs leading-5 text-slate-500">
+                  Turn raw web data into useful intelligence.
+                </p>
+              </div>
+
+              <div class="rounded-2xl border border-slate-200 bg-slate-50 p-5">
+                <p class="text-lg font-bold text-slate-950">
+                  Save Time
+                </p>
+
+                <p class="mt-2 text-xs leading-5 text-slate-500">
+                  Automate data collection and reporting workflows.
+                </p>
+              </div>
+
+              <div class="rounded-2xl border border-slate-200 bg-slate-50 p-5">
+                <p class="text-lg font-bold text-slate-950">
+                  Scale With Confidence
+                </p>
+
+                <p class="mt-2 text-xs leading-5 text-slate-500">
+                  Handle more data sources and markets as you grow.
+                </p>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- =====================================================
+             OTHER WORK
+        ====================================================== -->
+        <div class="mt-20">
+
+          <div class="flex flex-col justify-between gap-5 sm:flex-row sm:items-end">
+
+            <div>
+              <p class="text-xs font-bold uppercase tracking-[0.16em] text-slate-400">
+                More work
+              </p>
+
+              <h3 class="mt-2 text-2xl font-bold text-slate-950">
+                Other systems we build
+              </h3>
+            </div>
+
+            <p class="max-w-xl text-sm leading-6 text-slate-500">
+              Additional capabilities across web development,
+              optimization and business technology.
+            </p>
+
+          </div>
+
+
+          <div class="mt-8 grid gap-5 md:grid-cols-3">
+
+            <!-- APIs -->
+            <div class="bento-card overflow-hidden">
+
+              <div class="flex h-48 items-center justify-center bg-gradient-to-br from-slate-950 via-slate-900 to-blue-950 p-8">
+
+                <div class="w-full max-w-xs">
+
+                  <div class="rounded-2xl border border-white/10 bg-white/5 p-4 backdrop-blur">
+
+                    <div class="flex items-center justify-between">
+
+                      <div>
+                        <p class="text-[9px] font-semibold uppercase tracking-[0.14em] text-blue-300">
+                          DATA
+                        </p>
+
+                        <p class="mt-1 text-sm font-semibold text-white">
+                          Data Pipeline
+                        </p>
+                      </div>
+
+                      <div class="h-8 w-8 rounded-lg bg-blue-500/20"></div>
+
+                    </div>
+
+                    <div class="mt-5 space-y-2">
+                      <div class="h-2 rounded-full bg-white/10"></div>
+                      <div class="h-2 w-[80%] rounded-full bg-white/10"></div>
+                      <div class="h-2 w-[65%] rounded-full bg-blue-400/60"></div>
+                    </div>
+
+                  </div>
+
+                </div>
+
+              </div>
+
+              <div class="p-6">
+
+                <span class="case-study-label">
+                  04 · DATA
+                </span>
+
+                <h4 class="mt-4 text-xl font-bold text-slate-950">
+                  APIs & Data Systems
+                </h4>
+
+                <p class="mt-3 text-sm leading-6 text-slate-500">
+                  Reliable APIs, structured data workflows and
+                  integrations between business systems.
+                </p>
+
+              </div>
+
+            </div>
+
+
+            <!-- Websites -->
+            <div class="bento-card overflow-hidden">
+
+              <div class="flex h-48 items-center justify-center bg-gradient-to-br from-blue-50 via-white to-indigo-50 p-8">
+
+                <div class="w-full max-w-xs rounded-2xl border border-slate-200 bg-white p-4 shadow-xl shadow-blue-100/40">
+
+                  <div class="flex items-center gap-2">
+                    <div class="h-6 w-6 rounded-md bg-blue-600"></div>
+                    <div class="h-2.5 w-24 rounded-full bg-slate-100"></div>
+                  </div>
+
+                  <div class="mt-5 grid grid-cols-3 gap-2">
+                    <div class="h-16 rounded-xl bg-blue-50"></div>
+                    <div class="h-16 rounded-xl bg-indigo-50"></div>
+                    <div class="h-16 rounded-xl bg-slate-50"></div>
+                  </div>
+
+                  <div class="mt-4 h-2 rounded-full bg-slate-100"></div>
+                  <div class="mt-2 h-2 w-[72%] rounded-full bg-slate-100"></div>
+
+                </div>
+
+              </div>
+
+              <div class="p-6">
+
+                <span class="case-study-label">
+                  05 · WEB
+                </span>
+
+                <h4 class="mt-4 text-xl font-bold text-slate-950">
+                  Business Websites
+                </h4>
+
+                <p class="mt-3 text-sm leading-6 text-slate-500">
+                  Modern, responsive websites designed to build trust
+                  and convert visitors into customers.
+                </p>
+
+              </div>
+
+            </div>
+
+
+            <!-- Optimization -->
+            <div class="bento-card overflow-hidden">
+
+              <div class="flex h-48 items-center justify-center bg-gradient-to-br from-slate-50 via-white to-blue-50 p-8">
+
+                <div class="w-full max-w-xs rounded-2xl border border-slate-200 bg-white p-4 shadow-lg shadow-slate-200/50">
+
+                  <div class="flex items-center justify-between">
+
+                    <div>
+                      <p class="text-[8px] font-bold uppercase tracking-[0.12em] text-slate-400">
+                        WEBSITE
+                      </p>
+
+                      <p class="mt-1 text-sm font-bold text-slate-900">
+                        Performance
+                      </p>
+                    </div>
+
+                    <span class="rounded-full bg-emerald-50 px-2 py-1 text-[8px] font-bold text-emerald-600">
+                      96
+                    </span>
+
+                  </div>
+
+                  <div class="mt-5">
+
+                    <div class="h-2 rounded-full bg-slate-100">
+                      <div class="h-full w-[96%] rounded-full bg-emerald-500"></div>
+                    </div>
+
+                    <div class="mt-3 grid grid-cols-2 gap-2">
+
+                      <div class="rounded-lg bg-slate-50 p-2">
+                        <p class="text-[8px] text-slate-400">SEO</p>
+                        <p class="mt-1 text-xs font-bold text-slate-800">
+                          Strong
+                        </p>
+                      </div>
+
+                      <div class="rounded-lg bg-slate-50 p-2">
+                        <p class="text-[8px] text-slate-400">Speed</p>
+                        <p class="mt-1 text-xs font-bold text-slate-800">
+                          Fast
+                        </p>
+                      </div>
+
+                    </div>
+
+                  </div>
+
+                </div>
+
+              </div>
+
+              <div class="p-6">
+
+                <span class="case-study-label">
+                  06 · OPTIMIZATION
+                </span>
+
+                <h4 class="mt-4 text-xl font-bold text-slate-950">
+                  Website Enhancement & SEO
+                </h4>
+
+                <p class="mt-3 text-sm leading-6 text-slate-500">
+                  Improve website UX, technical performance,
+                  structure and search visibility.
+                </p>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- Disclaimer -->
+        <div class="mt-10 rounded-2xl border border-amber-100 bg-amber-50/60 px-5 py-4">
+          <p class="text-xs leading-5 text-amber-800">
+            <span class="font-bold">Case study note:</span>
+            Product visuals and numerical examples shown here are
+            illustrative demo material unless explicitly identified
+            as results from a real client project.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- =======================================================
+         PROCESS
+    ======================================================== -->
+    <section id="process" class="py-24 sm:py-28">
+      <div class="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
+
+        <div class="max-w-3xl">
+          <p class="text-xs font-bold uppercase tracking-[0.2em] text-blue-600">
+            Our process
+          </p>
+
+          <h2
+            class="mt-4 text-4xl font-bold tracking-[-0.03em] text-slate-950 sm:text-5xl"
+          >
+            Simple process. Serious execution.
+          </h2>
+
+          <p class="mt-5 text-lg leading-8 text-slate-500">
+            We focus first on understanding the business problem,
+            then design the right technical solution around it.
+          </p>
+        </div>
+
+
+        <div class="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+
+          <div class="bento-card p-7">
+            <div class="text-sm font-bold text-blue-600">
+              01
+            </div>
+
+            <h3 class="mt-5 text-xl font-bold text-slate-950">
+              Discover
+            </h3>
+
+            <p class="mt-3 text-sm leading-6 text-slate-500">
+              Understand your business, workflow, bottlenecks
+              and desired outcome.
+            </p>
+          </div>
+
+          <div class="bento-card p-7">
+            <div class="text-sm font-bold text-blue-600">
+              02
+            </div>
+
+            <h3 class="mt-5 text-xl font-bold text-slate-950">
+              Design
+            </h3>
+
+            <p class="mt-3 text-sm leading-6 text-slate-500">
+              Map the workflow and design a practical technical
+              architecture.
+            </p>
+          </div>
+
+          <div class="bento-card p-7">
+            <div class="text-sm font-bold text-blue-600">
+              03
+            </div>
+
+            <h3 class="mt-5 text-xl font-bold text-slate-950">
+              Build
+            </h3>
+
+            <p class="mt-3 text-sm leading-6 text-slate-500">
+              Develop, integrate and test the system around
+              your actual business requirements.
+            </p>
+          </div>
+
+          <div class="bento-card p-7">
+            <div class="text-sm font-bold text-blue-600">
+              04
+            </div>
+
+            <h3 class="mt-5 text-xl font-bold text-slate-950">
+              Launch & Improve
+            </h3>
+
+            <p class="mt-3 text-sm leading-6 text-slate-500">
+              Deploy the system and continuously improve it
+              as your business evolves.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- =======================================================
+         ABOUT
+    ======================================================== -->
+    <section id="about" class="border-y border-slate-200 bg-white py-24 sm:py-28">
+      <div class="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
+
+        <div class="grid gap-14 lg:grid-cols-[1.05fr_.95fr] lg:items-center">
+
+          <div>
+            <p class="text-xs font-bold uppercase tracking-[0.2em] text-blue-600">
+              About {{ companyName }}
+            </p>
+
+            <h2
+              class="mt-4 text-4xl font-bold tracking-[-0.03em] text-slate-950 sm:text-5xl"
+            >
+              Technology should make business simpler.
+            </h2>
+
+            <p class="mt-6 max-w-2xl text-base leading-8 text-slate-500">
+              {{ companyName }} is focused on building practical digital
+              systems that help businesses automate operations, improve
+              efficiency and create better customer experiences.
+            </p>
+
+            <p class="mt-5 max-w-2xl text-base leading-8 text-slate-500">
+              We combine software engineering, AI, automation, data and
+              modern web technologies to create solutions around the
+              way your business actually works.
+            </p>
+
+            <a
+              href="#contact"
+              class="mt-8 inline-flex rounded-full bg-slate-950 px-6 py-3.5 text-sm font-semibold text-white transition hover:bg-blue-600"
+            >
+              Discuss Your Project
+            </a>
+          </div>
+
+
+          <div class="grid gap-4 sm:grid-cols-2">
+
+            <div class="about-card">
+              AI-first thinking
+            </div>
+
+            <div class="about-card">
+              Automation-driven systems
+            </div>
+
+            <div class="about-card">
+              Scalable architecture
+            </div>
+
+            <div class="about-card">
+              Business-focused solutions
+            </div>
+
+            <div class="about-card">
+              Modern web technologies
+            </div>
+
+            <div class="about-card">
+              Reliable integrations
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- =======================================================
+         CONTACT
+    ======================================================== -->
+    <section id="contact" class="px-5 py-24 sm:px-6 sm:py-28 lg:px-8">
+      <div class="mx-auto max-w-7xl">
+
+        <div class="overflow-hidden rounded-[32px] bg-slate-950 text-white">
+
+          <div class="grid lg:grid-cols-[.85fr_1.15fr]">
+
+            <!-- Left -->
+            <div class="relative p-8 sm:p-10 lg:p-14">
+
+              <div
+                class="absolute right-0 top-0 h-72 w-72 translate-x-1/3 -translate-y-1/3 rounded-full bg-blue-600/20 blur-3xl"
+              ></div>
+
+              <div class="relative">
+
+                <p class="text-xs font-bold uppercase tracking-[0.2em] text-blue-400">
+                  Start a project
+                </p>
+
+                <h2
+                  class="mt-5 max-w-lg text-4xl font-bold tracking-[-0.03em] sm:text-5xl"
+                >
+                  Have a business problem worth solving?
+                </h2>
+
+                <p class="mt-6 max-w-lg text-base leading-7 text-slate-400">
+                  Tell us what you are trying to improve, automate or build.
+                  We’ll help shape the right technical solution.
+                </p>
+
+                <div class="mt-10 space-y-5">
+
+                  <div>
+                    <p class="text-[10px] font-bold uppercase tracking-[0.16em] text-slate-500">
+                      Typical projects
+                    </p>
+
+                    <p class="mt-2 text-sm text-slate-300">
+                      AI automation · CRM · Web apps · Data systems · Integrations
+                    </p>
+                  </div>
+
+                  <div>
+                    <p class="text-[10px] font-bold uppercase tracking-[0.16em] text-slate-500">
+                      Approach
+                    </p>
+
+                    <p class="mt-2 text-sm text-slate-300">
+                      Business-first · Practical · Scalable
+                    </p>
+                  </div>
+
+                </div>
+
+              </div>
+
+            </div>
+
+
+            <!-- Form -->
+            <div class="bg-white p-7 text-slate-900 sm:p-10 lg:p-14">
+
+              <form
+                class="space-y-5"
+                (ngSubmit)="submitContactForm()"
+              >
+
+                <div class="grid gap-5 sm:grid-cols-2">
+
+                  <div>
+                    <label
+                      for="name"
+                      class="mb-2 block text-xs font-semibold text-slate-700"
+                    >
+                      Name
+                    </label>
+
+                    <input
+                      id="name"
+                      name="name"
+                      type="text"
+                      [(ngModel)]="contactForm.name"
+                      required
+                      placeholder="Your name"
+                      class="w-full rounded-xl border border-slate-200 bg-white px-4 py-3.5 text-sm text-slate-900 outline-none transition placeholder:text-slate-400 focus:border-blue-500 focus:ring-0"
+                    />
+                  </div>
+
+
+                  <div>
+                    <label
+                      for="email"
+                      class="mb-2 block text-xs font-semibold text-slate-700"
+                    >
+                      Email
+                    </label>
+
+                    <input
+                      id="email"
+                      name="email"
+                      type="email"
+                      [(ngModel)]="contactForm.email"
+                      required
+                      placeholder="you@company.com"
+                      class="w-full rounded-xl border border-slate-200 bg-white px-4 py-3.5 text-sm text-slate-900 outline-none transition placeholder:text-slate-400 focus:border-blue-500 focus:ring-0"
+                    />
+                  </div>
+
+                </div>
+
+
+                <div>
+                  <label
+                    for="project_type"
+                    class="mb-2 block text-xs font-semibold text-slate-700"
+                  >
+                    What do you need?
+                  </label>
+
+                  <select
+                    id="project_type"
+                    name="project_type"
+                    [(ngModel)]="contactForm.project_type"
+                    class="w-full rounded-xl border border-slate-200 bg-white px-4 py-3.5 text-sm text-slate-900 outline-none transition focus:border-blue-500 focus:ring-0"
+                  >
+                    <option value="AI & Automation">
+                      AI & Automation
+                    </option>
+
+                    <option value="CRM / Business System">
+                      CRM / Business System
+                    </option>
+
+                    <option value="Website / Web Application">
+                      Website / Web Application
+                    </option>
+
+                    <option value="Data / Market Intelligence">
+                      Data / Market Intelligence
+                    </option>
+
+                    <option value="API / Integration">
+                      API / Integration
+                    </option>
+
+                    <option value="Something else">
+                      Something else
+                    </option>
+                  </select>
+                </div>
+
+
+                <div>
+                  <label
+                    for="message"
+                    class="mb-2 block text-xs font-semibold text-slate-700"
+                  >
+                    Tell us about the project
+                  </label>
+
+                  <textarea
+                    id="message"
+                    name="message"
+                    rows="6"
+                    [(ngModel)]="contactForm.message"
+                    required
+                    placeholder="Describe your business problem, workflow or idea..."
+                    class="w-full resize-none rounded-xl border border-slate-200 bg-white px-4 py-3.5 text-sm text-slate-900 outline-none transition placeholder:text-slate-400 focus:border-blue-500 focus:ring-0"
+                  ></textarea>
+                </div>
+
+
+                <button
+                  type="submit"
+                  [disabled]="isSubmitting"
+                  class="w-full rounded-xl bg-slate-950 px-5 py-3.5 text-sm font-semibold text-white transition hover:bg-blue-600 disabled:cursor-not-allowed disabled:opacity-60"
+                >
+                  {{ isSubmitting ? 'Sending...' : 'Send Project Enquiry' }}
+                </button>
+
+
+                <!-- Success -->
+                @if (submitSuccess) {
+                  <div class="rounded-xl border border-emerald-200 bg-emerald-50 px-4 py-3">
+                    <p class="text-sm font-semibold text-emerald-700">
+                      Thanks! Your project enquiry has been submitted successfully.
+                    </p>
+
+                    <p class="mt-1 text-xs text-emerald-600">
+                      We’ll review your requirement and get back to you.
+                    </p>
+                  </div>
+                }
+
+
+                <!-- Error -->
+                @if (submitError) {
+                  <div class="rounded-xl border border-red-200 bg-red-50 px-4 py-3">
+                    <p class="text-sm font-semibold text-red-700">
+                      {{ submitError }}
+                    </p>
+                  </div>
+                }
+
+
+                @if (!submitSuccess && !submitError) {
+                  <p class="text-center text-[10px] leading-5 text-slate-400">
+                    We’ll review your requirement and get back to you.
+                  </p>
+                }
+
+              </form>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+
+  <!-- =========================================================
+       FOOTER
+  ========================================================== -->
+  <footer class="border-t border-slate-200 bg-white">
+
+    <div
+      class="mx-auto flex max-w-7xl flex-col gap-5 px-5 py-8 sm:px-6 md:flex-row md:items-center md:justify-between lg:px-8"
+    >
+
+      <div>
+        <p class="text-sm font-bold tracking-[0.18em] text-slate-950">
+          {{ companyName }}
+        </p>
+
+        <p class="mt-1 text-xs text-slate-400">
+          Digital systems for growing businesses.
+        </p>
+      </div>
+
+
+      <div class="flex flex-wrap items-center gap-5">
+
+        <a
+          href="#services"
+          class="text-xs font-medium text-slate-400 transition hover:text-blue-600"
+        >
+          Services
+        </a>
+
+        <a
+          href="#work"
+          class="text-xs font-medium text-slate-400 transition hover:text-blue-600"
+        >
+          Work
+        </a>
+
+        <a
+          href="#process"
+          class="text-xs font-medium text-slate-400 transition hover:text-blue-600"
+        >
+          Process
+        </a>
+
+        <a
+          href="#contact"
+          class="text-xs font-medium text-slate-400 transition hover:text-blue-600"
+        >
+          Contact
+        </a>
+
+      </div>
+
+
+      <p class="text-xs text-slate-400">
+        © 2026 {{ companyName }}. All rights reserved.
+      </p>
+
     </div>
-  </div>
-</main>
 
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * The content above * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * * -->
-<!-- * * * * * * * * * * and can be replaced.  * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * End of Placeholder  * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+  </footer>
 
-
-<router-outlet />
+</div>
